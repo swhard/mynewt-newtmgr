@@ -12,6 +12,7 @@ require (
 	github.com/chzyer/readline v0.0.0-20171208011716-f6d7a1f6fbf3 // indirect
 	github.com/chzyer/test v0.0.0-20180213035817-a1ea475d72b1 // indirect
 	github.com/cosiner/argv v0.0.1 // indirect
+	github.com/currantlabs/ble v0.0.0-20171229162446-c1d21c164cf8 // indirect
 	github.com/fatih/color v1.7.0 // indirect
 	github.com/fatih/structs v1.1.0
 	github.com/flynn-archive/go-shlex v0.0.0-20150515145356-3f9db97f8568 // indirect
@@ -36,6 +37,7 @@ require (
 	go.starlark.net v0.0.0-20190919145610-979af19b165c // indirect
 	golang.org/x/arch v0.0.0-20190927153633-4e8777c89be4 // indirect
 	golang.org/x/net v0.0.0-20191119073136-fc4aabc6c914
+	golang.org/x/sys v0.0.0-20200610111108-226ff32320da // indirect
 	gopkg.in/VividCortex/ewma.v1 v1.1.1 // indirect
 	gopkg.in/abiosoft/ishell.v2 v2.0.0
 	gopkg.in/cheggaaa/pb.v1 v1.0.28

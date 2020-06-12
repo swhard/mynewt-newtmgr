@@ -118,6 +118,7 @@ func Commands() *cobra.Command {
 	nmCmd.AddCommand(configCmd())
 	nmCmd.AddCommand(connProfileCmd())
 	nmCmd.AddCommand(echoCmd())
+	nmCmd.AddCommand(testPepCmd())
 	nmCmd.AddCommand(resCmd())
 	nmCmd.AddCommand(interactiveCmd())
 	nmCmd.AddCommand(shellCmd())
