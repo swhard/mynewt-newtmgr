@@ -11,6 +11,10 @@ jobs:
   build:
     name: Build
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        go_arch: ['arm', 'amd64']
+        go_os: ['linux']
     steps:
 
     - name: Set up Go 1.x
@@ -31,7 +35,13 @@ jobs:
         fi
 
     - name: Build
-      run: go build -v .
+      run: cd newtmgr && GOOS=${{ matrix.go_os }} GOARCH=${{ matrix.go_arch }} go build -v .
 
     - name: Test
       run: go test -v .
+
+    - name: Publish artifact
+      uses: actions/upload-artifact@v2
+      with:
+        name: mcumgr-${{ matrix.go_os }}-${{ matrix.go_arch }}
+        path: newtmgr/newtmgr
