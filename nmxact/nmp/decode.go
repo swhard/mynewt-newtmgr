@@ -20,6 +20,7 @@
 package nmp
 
 import (
+	"encoding/hex"
 	"fmt"
 
 	"github.com/ugorji/go/codec"
@@ -37,6 +38,7 @@ const gr_cra = NMP_GROUP_CRASH
 const gr_run = NMP_GROUP_RUN
 const gr_fil = NMP_GROUP_FS
 const gr_she = NMP_GROUP_SHELL
+const gr_shy = NMP_GROUP_SHEELDY
 
 // Op-Group-Id
 type Ogi struct {
@@ -47,7 +49,11 @@ type Ogi struct {
 
 type rspCtor func() NmpRsp
 
-func echoRspCtor() NmpRsp          { return NewEchoRsp() }
+func echoRspCtor() NmpRsp {
+
+	return NewEchoRsp()
+}
+func testPepRspCtor() NmpRsp       { return NewTestPepRsp() }
 func taskStatRspCtor() NmpRsp      { return NewTaskStatRsp() }
 func mpStatRspCtor() NmpRsp        { return NewMempoolStatRsp() }
 func dateTimeReadRspCtor() NmpRsp  { return NewDateTimeReadRsp() }
@@ -104,6 +110,7 @@ var rspCtorMap = map[Ogi]rspCtor{
 	{op_rr, gr_cfg, NMP_ID_CONFIG_VAL}:       configReadRspCtor,
 	{op_wr, gr_cfg, NMP_ID_CONFIG_VAL}:       configWriteRspCtor,
 	{op_wr, gr_she, NMP_ID_SHELL_EXEC}:       shellExecRspCtor,
+	{op_wr, gr_shy, NMP_ID_DEF_ECHO}:         testPepRspCtor,
 }
 
 func DecodeRspBody(hdr *NmpHdr, body []byte) (NmpRsp, error) {
@@ -112,11 +119,10 @@ func DecodeRspBody(hdr *NmpHdr, body []byte) (NmpRsp, error) {
 		return nil, fmt.Errorf("Unrecognized NMP op+group+id: %d, %d, %d",
 			hdr.Op, hdr.Group, hdr.Id)
 	}
-
+	fmt.Printf("%s", hex.Dump(body))
 	r := cb()
 	cborCodec := new(codec.CborHandle)
 	dec := codec.NewDecoderBytes(body, cborCodec)
-
 	if err := dec.Decode(r); err != nil {
 		return nil, fmt.Errorf("Invalid response: %s", err.Error())
 	}

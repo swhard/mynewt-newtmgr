@@ -5,6 +5,7 @@ go 1.12
 require (
 	github.com/JuulLabs-OSS/cbgo v0.0.2
 	github.com/abiosoft/readline v0.0.0-20180607040430-155bce2042db // indirect
+	github.com/currantlabs/ble v0.0.0-20171229162446-c1d21c164cf8 // indirect
 	github.com/fatih/color v1.9.0 // indirect
 	github.com/fatih/structs v1.1.0
 	github.com/flynn-archive/go-shlex v0.0.0-20150515145356-3f9db97f8568 // indirect
@@ -20,6 +21,7 @@ require (
 	github.com/tarm/serial v0.0.0-20180830185346-98f6abe2eb07
 	github.com/ugorji/go/codec v1.1.7
 	golang.org/x/net v0.0.0-20200602114024-627f9648deb9
+	golang.org/x/sys v0.0.0-20200615200032-f1bc736245b1 // indirect
 	gopkg.in/abiosoft/ishell.v2 v2.0.0
 	gopkg.in/cheggaaa/pb.v1 v1.0.28
 	mynewt.apache.org/newt v0.0.0-20200612205247-d7efc36caf73

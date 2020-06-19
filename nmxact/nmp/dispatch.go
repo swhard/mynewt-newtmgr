@@ -110,6 +110,7 @@ func (d *Dispatcher) RemoveListener(seq uint8) *Listener {
 }
 
 func decodeRsp(pkt []byte) (NmpRsp, error) {
+	fmt.Println("decodeRsp")
 	hdr, err := DecodeNmpHdr(pkt)
 	if err != nil {
 		return nil, err

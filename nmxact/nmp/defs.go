@@ -50,6 +50,7 @@ const (
 	NMP_GROUP_FS      = 8
 	NMP_GROUP_SHELL   = 9
 	NMP_GROUP_PERUSER = 64
+	NMP_GROUP_SHEELDY = 65
 )
 
 // Default group (0).
